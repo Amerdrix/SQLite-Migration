@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Collections.Generic;
 
 using Microsoft.Data.Entity;
 using Microsoft.Extensions.PlatformAbstractions;
@@ -21,10 +22,15 @@ namespace EFTest
     public class Model1
     {
         Guid Id { get; set; }
+
+        public IList<Model2> Model2s { get; set; }
     }
 
     public class Model2
     {
         Guid Id { get; set; }
+
+        public Model1 Model1 { get; set; }
+        public Guid Model1Id { get; set; }
     }
 }
